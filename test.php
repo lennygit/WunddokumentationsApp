@@ -1,4 +1,4 @@
 <?php
   echo "Das ist unser erstes Update";
-as
+  echo "Das ist unser zweites Update";
  ?>
