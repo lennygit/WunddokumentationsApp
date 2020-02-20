@@ -1,4 +1,4 @@
 <?php
-  echo "Test";
+  echo "Das ist unser erstes Update";
 as
  ?>
