@@ -1,21 +1,27 @@
 <?php
+session_start();
 require "wdrequire.php";
 
-require "wdfunctons.php";
+require "wdfunctions.php";
 
 navbarlogin();
 
 $groesse = ( isset($_POST['groesse']) ? $_POST['groesse'] : NULL );
 if (isset( $_POST['action']) && $_POST['action']==="add" ) {
+  $groessen = $_SESSION['s_groessen'];
     $groessen = addgroesse($groessen, $groesse);
-
-}
+    $_SESSION['s_groessen'] = $groessen;}
 else{
-  $groessen = array()
+  echo "Erstes Mal";
+  $groessen = array();
   $groessen[0][flaeche] = 0;
   $groessen[0][aenderung] = 0;
+  $_SESSION['s_groessen']=$groessen;
 
 }
+
+arrayausgeben($groessen);
+
  ?>
 
  <head>
