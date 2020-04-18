@@ -1,24 +1,26 @@
-<?php declare(strict_types=1);
+<?php
 require "wdfunctions.php";
 use PHPUnit\Framework\TestCase;
 
-final class GroessenTest extends TestCase
+ class GroessenTest extends TestCase
 {
-    //function addgroesse($groessen, $groesse, $patient)
-    //Array erstellen
-    $testpatient = "p1";
-    $testgroeße = 150;
-    $arraygroeße = array(); //es wird ein multidimensionales Array erstellt
-    $arraygroeße[0][flaeche] = 100; //mit Fläche
-    $arraygroeße[0][aenderung] = 0; // die Änderung zu dem vorherigen
-    $arraygroeße[0][patient] = $testpatient;
 
-    public function testGroesse(): void
+    public function testGroesse()
     {
+      $testpatient = "p1";
+      $testgroeße = 150;
+      $arraygroeße = array(); //es wird ein multidimensionales Array erstellt
+      $arraygroeße[0][flaeche] = 100; //mit Fläche
+      $arraygroeße[0][aenderung] = 0; // die Änderung zu dem vorherigen
+      $arraygroeße[0][patient] = $testpatient;
+      $array = array();
+      $array=addgroesse($arraygroeße,$testgroeße,$testpatient);
 
-      addgroesse($arraygroeße,$testgroeße,$testpatient)
+      //Ergebnis der Funktion
+      //array[[100][0]["p1"]][[150][50]["p1"]]
       //Ergebnis: arraygroesse[1][aenderung] = 50
-      $this->assertSame(50,arraygroesse[1][aenderung])
+
+      $this->assertEquals(50,$array[1][aenderung]);
     }
 
 }
